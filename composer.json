@@ -1,6 +1,7 @@
 {
     "name": "justinkekeocha/laravel-db-dump",
     "description": "This package will save you from loosing database records, supposing you run the laravel migrate:fresh command without exporting a database dump",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Justinkekeocha\\LaravelDbDump\\": "src/"
