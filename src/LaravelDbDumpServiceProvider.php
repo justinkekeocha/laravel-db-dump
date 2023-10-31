@@ -4,7 +4,6 @@ namespace Justinkekeocha\LaravelDbDump;
 
 use Illuminate\Support\ServiceProvider;
 use Justinkekeocha\LaravelDbDump\Commands\DbDump;
-use Justinkekeocha\LaravelDbDump\Commands\DbDumpMigrateFresh;
 
 class LaravelDbDumpServiceProvider extends ServiceProvider
 {
@@ -14,7 +13,7 @@ class LaravelDbDumpServiceProvider extends ServiceProvider
      * @return void
      */
     public function register()
-    {
+    {    //Merge package config file with application config file with the same key
         $this->mergeConfigFrom(
             __DIR__ . '/../config/database-dumps.php',
             'database-dumps'
@@ -31,12 +30,16 @@ class LaravelDbDumpServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
 
             $this->publishes([
-                __DIR__ . '/../config/database-dumps.php' => config_path('database-dumps.php'), 'laravel-db-dump-config'
-            ]);
+                __DIR__ . '/../config/database-dumps.php' => config_path('database-dumps.php')
+            ], 'laravel-db-dump-config');
+
+            $this->publishes([
+                __DIR__ . '/Commands/FreshCommand.php' => app_path('Console/Commands/FreshCommand.php'),
+            ], 'laravel-db-dump-config');
+
 
             $this->commands([
                 DbDump::class,
-                DbDumpMigrateFresh::class,
             ]);
         }
     }

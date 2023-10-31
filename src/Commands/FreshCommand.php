@@ -1,10 +1,10 @@
 <?php
 
-namespace Justinkekeocha\LaravelDbDump\Commands;
+namespace App\Console\Commands;
 
-use Illuminate\Database\Console\Migrations\FreshCommand;
+use Illuminate\Database\Console\Migrations\FreshCommand as LaravelFreshCommand;
 
-class DbDumpMigrateFresh extends FreshCommand
+class FreshCommand extends LaravelFreshCommand
 {
 
 
