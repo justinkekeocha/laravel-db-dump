@@ -34,5 +34,9 @@ class LaravelDbDumpServiceProvider extends ServiceProvider
                 DbDumpMigrateFresh::class,
             ]);
         }
+
+        $this->publishes([
+            __DIR__ . '/../config/database.php' => config_path('database.php'),
+        ]);
     }
 }
