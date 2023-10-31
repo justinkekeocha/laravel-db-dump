@@ -31,7 +31,7 @@ class LaravelDbDumpServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
 
             $this->publishes([
-                __DIR__ . '/../config/database.php' => config_path('database.php', 'db-dump-config'),
+                __DIR__ . '/../config/database.php' => config_path('database.php'), 'laravel-db-dump-config'
             ]);
 
             $this->commands([
