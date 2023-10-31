@@ -16,8 +16,8 @@ class LaravelDbDumpServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/../config/database.php',
-            'database'
+            __DIR__ . '/../config/database-dumps.php',
+            'database-dumps'
         );
     }
 
@@ -31,7 +31,7 @@ class LaravelDbDumpServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
 
             $this->publishes([
-                __DIR__ . '/../config/database.php' => config_path('database.php'), 'laravel-db-dump-config'
+                __DIR__ . '/../config/database-dumps.php' => config_path('database-dumps.php'), 'laravel-db-dump-config'
             ]);
 
             $this->commands([
