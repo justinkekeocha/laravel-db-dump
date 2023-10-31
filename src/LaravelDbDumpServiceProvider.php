@@ -1,6 +1,6 @@
 <?php
 
-namespace Justinkekeocha\LaravelDbDump\Providers;
+namespace Justinkekeocha\LaravelDbDump;
 
 use Illuminate\Support\ServiceProvider;
 use Justinkekeocha\LaravelDbDump\Commands\DbDump;
