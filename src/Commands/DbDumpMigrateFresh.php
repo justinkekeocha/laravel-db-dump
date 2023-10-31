@@ -13,7 +13,7 @@ class DbDumpMigrateFresh extends FreshCommand
      */
     public function handle()
     {
-        if (config('database-dumps.enable')) {
+        if (config('database.dumps.enable')) {
             $this->call('db:dump');
         }
         parent::handle();
